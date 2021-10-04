@@ -1,0 +1,11 @@
+@import '../config/variables';
+@import '../config/mixins';
+
+.task-list__header {
+    display: flex;
+    flex-direction: column;
+
+    & img {
+        max-width: 800px;
+    }
+}

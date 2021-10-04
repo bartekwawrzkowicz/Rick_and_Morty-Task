@@ -1,0 +1,9 @@
+@import '../config/variables';
+
+@mixin container {
+    display: flex;
+    justify-content: center;
+    background-color: $third-color;
+    color: $text-color;
+    border-radius: .4rem;
+}

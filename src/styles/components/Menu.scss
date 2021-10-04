@@ -1,0 +1,13 @@
+@import '../config/mixins';
+@import '../config/variables';
+
+.task-list__menu {
+    background-color: $second-color-darken;
+    padding: 5px;
+    border-radius: .4rem;
+}
+
+.task-list__menu li {
+    @include container;
+    margin: 10px;
+}

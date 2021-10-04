@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
-
+@import './config/variables';
 * {
   margin: 0;
   padding: 0;
@@ -12,5 +12,7 @@ html, body {
   justify-content: center;
   align-items: center;
   font-family: 'Quicksand', sans-serif;
-  font-size: 2rem;
+  font-size: 1.4rem;
+  background-color: $main-color;
+  color: $text-color;
 }
