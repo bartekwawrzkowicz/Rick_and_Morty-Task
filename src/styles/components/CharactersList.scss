@@ -1,0 +1,43 @@
+@import '../config/mixins';
+@import '../config/variables';
+
+.characters-list {
+    background-color: $second-color-darken;
+    padding: 5px;
+    border-radius: .4rem;
+
+    &__header {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+
+.characters-list li {
+    @include container;
+    margin: 10px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+        width: 200px;
+        margin: 5px;
+        border-radius: .4rem;
+        border: 2px solid $second-color-darken;
+    }
+}
+
+.characters-list__info {
+    text-align: center;
+}
+
+.name {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 2rem;
+}
