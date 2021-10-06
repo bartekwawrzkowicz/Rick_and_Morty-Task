@@ -1,0 +1,30 @@
+@import '../config/_variables.scss';
+
+.scroll {
+    position: fixed;
+    bottom: 20px;
+    left: 85%;
+    width: 40px;
+    height: 40px;
+    background-color: $second-color-darken;
+    color: $text-color;
+    font-size: 1.2rem;
+    border-radius: 100%;
+    border: 2px solid $second-color;
+    z-index: 1;
+    cursor: pointer;
+
+    &__icon {
+        margin-top: 10px;
+        animation: scrollTop 1s alternate ease;
+    }
+}
+
+@keyframes scrollTop{
+    from {
+        transform: translateY(2px)
+    }
+    to {
+        transform: translateY(-2px)
+    }
+}
