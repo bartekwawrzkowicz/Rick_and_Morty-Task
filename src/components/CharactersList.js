@@ -8,7 +8,6 @@ const CharactersList = props => {
 
     return (
         <>
-
             <h2 className="characters-list__header">List of characters</h2>
             <Characters posts={props.posts} />
         </>

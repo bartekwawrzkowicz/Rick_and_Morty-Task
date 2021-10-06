@@ -8,15 +8,12 @@ import CharactersList from './components/CharactersList';
 import './styles/components/App.scss';
 
 const URL = 'https://rickandmortyapi.com/api/character';
-const genderFemaleURL = 'https://rickandmortyapi.com/api/character/?gender=female';
-const buttonActiveText = 'Female Characters filter';
-const buttonNonActiveText = 'Back to starting list';
 let number = 1;
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [isActive, setIsActive] = useState(true);
   const [pagination, setPagination] = useState(false);
+  const [counter, setCounter] = useState(number);
 
   useEffect(() => {
     axios
@@ -27,29 +24,29 @@ function App() {
       .catch(err => {
         console.error(err)
       })
-
   }, []);
 
-  const filterFemaleCharacters = () => {
-    setIsActive(!isActive)
+  const filteredMale = posts.filter(character => character.gender === 'Male');
+  const filteredFemale = posts.filter(character => character.gender === 'Female');
+  const filteredHuman = posts.filter(character => character.species === 'Human');
+  const filteredAlien = posts.filter(character => character.species === 'Alien');
 
-    if (isActive) {
-      axios
-        .get(genderFemaleURL)
-        .then(res => {
-          setPosts(res.data.results)
-        })
+  const filterCharactersHandler = event => {
+    if (event.target.value === 'Male') {
+      setPosts(filteredMale)
+    } else if (event.target.value === 'Female') {
+      setPosts(filteredFemale)
+    } else if (event.target.value === 'Human') {
+      setPosts(filteredHuman)
+    } else if (event.target.value === 'Alien') {
+      setPosts(filteredAlien)
     } else {
-      axios
-        .get(URL)
-        .then(res => {
-          setPosts(res.data.results)
-        })
+      setPosts(posts)
     }
-  };
+  }
 
   const nextButtonHandler = () => {
-    ++number
+    setCounter(number++)
     axios
       .get(URL + `/?page=${number}`)
       .then(res => {
@@ -60,7 +57,7 @@ function App() {
   }
 
   const backButtonHandler = () => {
-    --number
+    setCounter(number--)
     axios
       .get(URL + `/?page=${number}`)
       .then(res => {
@@ -74,7 +71,14 @@ function App() {
   return (
     <>
       <Header />
-      <button className="filterBtn filter" onClick={filterFemaleCharacters}>{isActive ? buttonActiveText : buttonNonActiveText}</button>
+      <label for="filter" className="filter">Filter Current Characters</label>
+      <select className="filter" onChange={filterCharactersHandler}>
+        <option value="Full List">all</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Human">Human</option>
+        <option value="Alien">Alien</option>
+      </select>
       <CharactersList posts={posts} />
       {pagination ? (
         <button className="filterBtn pagination" onClick={backButtonHandler}>back</button>
