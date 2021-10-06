@@ -26,7 +26,7 @@
 
     & img {
         width: 200px;
-        margin: 5px;
+        margin: 20px;
         border-radius: .4rem;
         border: 2px solid $second-color-darken;
     }
@@ -34,6 +34,10 @@
 
 .characters-list__info {
     text-align: center;
+
+    &:last-child {
+        margin-bottom: 12px;
+    }
 }
 
 .name {
