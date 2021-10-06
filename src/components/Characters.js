@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 import '../styles/components/Characters.scss';
 
 const Characters = props => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ScrollToTop from './components/ScrollToTop';
 
 import Header from './components/Header';
 import CharactersList from './components/CharactersList';
@@ -16,8 +17,6 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [isActive, setIsActive] = useState(true);
   const [pagination, setPagination] = useState(false);
-
-
 
   useEffect(() => {
     axios
@@ -72,7 +71,6 @@ function App() {
     }
   }
 
-
   return (
     <>
       <Header />
@@ -82,9 +80,9 @@ function App() {
         <button className="filterBtn pagination" onClick={backButtonHandler}>back</button>
       ) : null}
       <button className="filterBtn pagination" onClick={nextButtonHandler}>next</button>
+      <ScrollToTop />
     </>
   );
 }
-
 
 export default App;
