@@ -1,0 +1,19 @@
+@import '../config/variables';
+
+.filterBtn {
+    padding: 10px;
+    width: 300px;
+    margin: 50px;
+    border-radius: 10px;
+    background-color: $second-color-darken;
+    color: $text-color;
+    text-transform: uppercase;
+    font-size: .7rem;
+    cursor: pointer;
+    transition: 1s;
+
+    &:hover {
+        background-color: $second-color;
+        transition: 1s;
+    }
+}

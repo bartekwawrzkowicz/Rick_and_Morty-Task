@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 
 import '../styles/components/Characters.scss';
 
-const Characters = () => {
+const Characters = props => {
 
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get('https://rickandmortyapi.com/api/character')
-            .then(res => {
-                setPosts(res.data.results)
-            })
-            .catch(err => {
-                console.error(err)
-            })
-    }, [])
-
-    const characters = posts.map(character => {
+    const characters = props.posts.map(character => {
 
         const date = new Date(character.created).toLocaleDateString();
         const time = new Date(character.created).toLocaleTimeString();
