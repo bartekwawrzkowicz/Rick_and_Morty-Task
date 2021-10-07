@@ -80,10 +80,12 @@ function App() {
         <option value="Alien">Alien</option>
       </select>
       <CharactersList posts={posts} />
-      {pagination ? (
-        <button className="button pagination" onClick={backButtonHandler}>back</button>
-      ) : null}
-      <button className="button pagination" onClick={nextButtonHandler}>next</button>
+      <div className="buttons">
+        {pagination ? (
+          <button className="button pagination" onClick={backButtonHandler}>back</button>
+        ) : null}
+        <button className="button pagination" onClick={nextButtonHandler}>next</button>
+      </div>
       <ScrollToTop />
     </>
   );

@@ -3,9 +3,22 @@
 
 .task-list__header {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin: 30px 0;
+
+    @include large-mobile {
+        margin: 10px 0;
+    }
 
     & img {
-        max-width: 800px;
+        width: 350px;
+
+        @include large-mobile {
+            width: 550px;
+        }
+
+        @include desktop {
+            width: 800px;
+        }
     }
 }

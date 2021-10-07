@@ -1,9 +1,26 @@
 @import '../config/variables';
+@import '../config/breakpoints';
 
 @mixin container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: $third-color;
     color: $text-color;
     border-radius: .4rem;
 }
+
+// large mobile devices and tablets
+@mixin large-mobile {
+    @media (min-width: #{$mobile-screen-min}) and (max-width: #{$mobile-screen-max}) {
+        @content;
+    }
+ }
+
+ // desktop
+ @mixin desktop {
+     @media (min-width: #{$desktop-screen-min}) {
+         @content;
+     }
+ }
