@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ScrollToTop from './components/ScrollToTop';
-import Button from '@mui/material/Button';
-import Palette from './components/NewUIThemeButton';
 
+import ScrollToTop from './components/ScrollToTop';
+import Palette from './components/NewUIThemeButton';
 import Header from './components/Header';
 import CharactersList from './components/CharactersList';
 
