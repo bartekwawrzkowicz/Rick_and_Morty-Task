@@ -72,8 +72,8 @@ function App() {
     <>
       <Header />
       <label for="filter" className="filter">Filter Current Characters</label>
-      <select className="filter" onChange={filterCharactersHandler}>
-        <option value="Full List">all</option>
+      <select className="filter__select" onChange={filterCharactersHandler}>
+        <option value="Full-List">all</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Human">Human</option>
@@ -81,9 +81,9 @@ function App() {
       </select>
       <CharactersList posts={posts} />
       {pagination ? (
-        <button className="filterBtn pagination" onClick={backButtonHandler}>back</button>
+        <button className="button pagination" onClick={backButtonHandler}>back</button>
       ) : null}
-      <button className="filterBtn pagination" onClick={nextButtonHandler}>next</button>
+      <button className="button pagination" onClick={nextButtonHandler}>next</button>
       <ScrollToTop />
     </>
   );
