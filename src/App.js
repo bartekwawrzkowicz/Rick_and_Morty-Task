@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ScrollToTop from './components/ScrollToTop';
+import Button from '@mui/material/Button';
+import Palette from './components/NewUIThemeButton';
 
 import Header from './components/Header';
 import CharactersList from './components/CharactersList';
@@ -71,6 +73,7 @@ function App() {
   return (
     <>
       <Header />
+      <Palette />
       <label for="filter" className="filter">Filter Current Characters</label>
       <select className="filter__select" onChange={filterCharactersHandler}>
         <option value="Full-List">all</option>
