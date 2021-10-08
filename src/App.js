@@ -84,7 +84,7 @@ function App() {
   return (
     <>
       <Header />
-      <label className="filter">Filter current characters</label>
+      <label className="filter">Filter characters</label>
       <select className="filter__select" onChange={filterCharactersHandler}>
         <option value="full-list" defaultValue>all</option>
         <option value="Male">Male</option>
