@@ -14,17 +14,15 @@ let number = 1;
 function App() {
   const [posts, setPosts] = useState([]);
   const [pagination, setPagination] = useState(false);
+  const [totalPages, setTotalPages] = useState(0)
   const [counter, setCounter] = useState(number);
   const [dynamicURL, setDynamicURL] = useState(URL);
-
-  if (number > 34 || number === 1) {
-    number = 1
-  }
 
   useEffect(() => {
     axios
       .get(dynamicURL)
       .then(res => {
+        setTotalPages(res.data.info.pages)
         setPosts(res.data.results)
       })
       .catch(err => {
@@ -57,6 +55,11 @@ function App() {
         setPosts(res.data.results)
       });
     setPagination(true);
+    if (number > totalPages || number === 1) {
+      number = 1;
+      setPagination(false)
+    }
+
   };
 
   const backButtonHandler = () => {
