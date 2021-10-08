@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import ScrollToTop from './components/ScrollToTop';
-import Palette from './components/NewUIThemeButton';
+import Buttons from './components/NewUIThemeButton';
 import Header from './components/Header';
 import CharactersList from './components/CharactersList';
 
@@ -32,7 +32,10 @@ function App() {
   const filteredHuman = posts.filter(character => character.species === 'Human');
   const filteredAlien = posts.filter(character => character.species === 'Alien');
 
+
+
   const filterCharactersHandler = event => {
+
     if (event.target.value === 'Male') {
       setPosts(filteredMale)
     } else if (event.target.value === 'Female') {
@@ -44,35 +47,38 @@ function App() {
     } else {
       setPosts(posts)
     }
+
+    //setPosts(chcarcter.gender === )
   }
 
   const nextButtonHandler = () => {
-    setCounter(number++)
+    number = number + 1;
+    setCounter(counter + 1);
     axios
       .get(URL + `/?page=${number}`)
       .then(res => {
         setPosts(res.data.results)
-      })
-
-    setPagination(true)
-  }
+      });
+    setPagination(true);
+  };
 
   const backButtonHandler = () => {
-    setCounter(number--)
+    number = number - 1;
+    setCounter(counter - 1);
     axios
       .get(URL + `/?page=${number}`)
       .then(res => {
         setPosts(res.data.results)
-      })
+      });
     if (number === 1) {
-      setPagination(false)
-    }
-  }
+      setPagination(false);
+    };
+  };
 
   return (
     <>
       <Header />
-      <Palette />
+
       <label for="filter" className="filter">Filter Current Characters</label>
       <select className="filter__select" onChange={filterCharactersHandler}>
         <option value="Full-List">all</option>
@@ -81,12 +87,11 @@ function App() {
         <option value="Human">Human</option>
         <option value="Alien">Alien</option>
       </select>
+
       <CharactersList posts={posts} />
+
       <div className="buttons">
-        {pagination ? (
-          <button className="button pagination" onClick={backButtonHandler}>back</button>
-        ) : null}
-        <button className="button pagination" onClick={nextButtonHandler}>next</button>
+        <Buttons pagination={pagination} posts={posts} clickBack={backButtonHandler} clickNext={nextButtonHandler} pageNumber={counter} />
       </div>
       <ScrollToTop />
     </>

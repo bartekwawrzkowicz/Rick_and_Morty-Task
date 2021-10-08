@@ -1,24 +1,31 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import '../styles/components/NewUIThemeButton.scss';
 
-const codeodriveTheme = createTheme({
+const newButtonTheme = createTheme({
     palette: {
         primary: {
-            main: '#FD957C',
+            main: '#322F3D',
         },
         secondary: {
-            main: 'rgba(65, 65, 65, 0.95)',
+            main: '#59405C',
         },
     },
 });
 
-const Palette = () => {
+const Buttons = props => {
     return (
-        <ThemeProvider theme={codeodriveTheme}>
-            <Button size="small" variant="contained" href="http://codeodrive.com">codeodrive.com</Button>
+        <ThemeProvider theme={newButtonTheme}>
+            {props.pagination ? (
+                <Button size="large" variant="contained" onClick={props.clickBack}>back</Button>
+            ) : null}
+            {props.pagination ? (
+                <span className="page-info">{props.pageNumber}</span>
+            ) : null}
+            <Button size="large" variant="contained" onClick={props.clickNext}>next</Button>
         </ThemeProvider>
     );
 }
 
-export default Palette;
+export default Buttons;

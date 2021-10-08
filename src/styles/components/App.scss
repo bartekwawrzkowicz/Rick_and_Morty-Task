@@ -1,39 +1,19 @@
 @import '../config/variables';
 @import '../config/mixins';
 
-.button {
-    width: 100px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: $second-color-darken;
-    color: $text-color;
-    text-transform: uppercase;
-    font-size: .8rem;
-    cursor: pointer;
-    transition: 1s;
-
-    &:hover {
-        background-color: $second-color;
-        transition: 1s;
-    }
-
-    @include large-mobile {
-        height: 40px;
-        font-size: 1.1rem;
-    }
-
-    @include desktop {
-        height: 50px;
-        width: 120px;
-        font-size: 1.4rem;
-    }
-}
-
 .buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin: 20px 0;
+    justify-content: space-between;
+    margin: 20px 50px;
+
+    @include large-mobile {
+        margin: 20px 80px;
+    }
+
+    @include desktop {
+        margin: 20px 200px;
+    }
 }
 
 .filter {
@@ -50,18 +30,18 @@
     @include desktop {
             font-size: 1.8rem;
     }
-}
 
-.filter__select {
-    display: flex;
-    margin: 5px auto;
-    text-transform: uppercase;
-
-    @include large-mobile {
-        font-size: 1rem;
-    }
-
-    @include desktop {
-         font-size: 1.4rem;   
+    &__select {
+        display: flex;
+        margin: 5px auto;
+        text-transform: uppercase;
+    
+        @include large-mobile {
+            font-size: 1rem;
+        }
+    
+        @include desktop {
+             font-size: 1.4rem;   
+        }
     }
 }

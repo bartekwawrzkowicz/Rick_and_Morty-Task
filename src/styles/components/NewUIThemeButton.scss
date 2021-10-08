@@ -1,0 +1,25 @@
+@import '../config/mixins';
+@import '../config/variables';
+
+.page-info {
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: $second-color-darken;
+    color: $text-color;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+
+    @include large-mobile {
+        height: 30px;
+        font-size: 1.4rem;
+    }
+
+    @include desktop {
+        height: 40px;
+        width: 60px;
+        font-size: 1.8rem;
+    }
+}

@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Characters from '../components/Characters';
+import Character from './Character';
 
-import '../styles/components/Characters.scss';
+import '../styles/components/Character.scss';
 
 const CharactersList = props => {
 
     return (
         <>
             <h2 className="characters-list__header">List of characters</h2>
-            <Characters posts={props.posts} />
+            <Character posts={props.posts} />
         </>
     );
 }
