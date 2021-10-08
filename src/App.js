@@ -11,13 +11,15 @@ import './styles/components/App.scss';
 const URL = 'https://rickandmortyapi.com/api/character';
 let number = 1;
 
-
-
 function App() {
   const [posts, setPosts] = useState([]);
   const [pagination, setPagination] = useState(false);
   const [counter, setCounter] = useState(number);
   const [dynamicURL, setDynamicURL] = useState(URL);
+
+  if (number > 34 || number === 1) {
+    number = 1
+  }
 
   useEffect(() => {
     axios
@@ -32,7 +34,7 @@ function App() {
 
   const filterCharactersHandler = event => {
     const { value } = event.target;
-
+    number = 1
     if (value === 'Male') {
       setDynamicURL(`${URL}/?gender=male`);
     } else if (value === 'Female') {
@@ -50,7 +52,7 @@ function App() {
     number = number + 1;
     setCounter(counter + 1);
     axios
-      .get(URL + `/? page = ${number} `)
+      .get(URL + `/?page=${number}`)
       .then(res => {
         setPosts(res.data.results)
       });
@@ -61,13 +63,19 @@ function App() {
     number = number - 1;
     setCounter(counter - 1);
     axios
-      .get(URL + `/? page = ${number} `)
+      .get(URL + `/?page=${number}`)
       .then(res => {
         setPosts(res.data.results)
       });
     if (number === 1) {
-      setPagination(false);
-    };
+      axios
+        .get(URL)
+        .then(res => {
+          setPosts(res.data.results)
+          setPagination(false);
+        });
+
+    }
   };
 
   return (
@@ -85,7 +93,7 @@ function App() {
       <CharactersList posts={posts} />
 
       <div className="button-container">
-        <Buttons pagination={pagination} posts={posts} clickBack={backButtonHandler} clickNext={nextButtonHandler} pageNumber={counter} />
+        <Buttons pagination={pagination} posts={posts} clickBack={backButtonHandler} clickNext={nextButtonHandler} pageNumber={number} />
       </div>
       <ScrollToTop />
     </>
