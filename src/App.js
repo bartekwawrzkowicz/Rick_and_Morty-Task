@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import ScrollToTop from './components/ScrollToTop';
-import Buttons from './components/NewUIThemeButton';
-import Header from './components/Header';
-import CharactersList from './components/CharactersList';
+import ScrollToTop from './components/ScrollToTop.jsx';
+import Buttons from './components/NewUIThemeButton.jsx';
+import Header from './components/Header.jsx';
+import CharactersList from './components/CharactersList.jsx';
 
 import './styles/components/App.scss';
 
@@ -32,8 +32,6 @@ function App() {
   const filteredHuman = posts.filter(character => character.species === 'Human');
   const filteredAlien = posts.filter(character => character.species === 'Alien');
 
-
-
   const filterCharactersHandler = event => {
 
     if (event.target.value === 'Male') {
@@ -47,8 +45,6 @@ function App() {
     } else {
       setPosts(posts)
     }
-
-    //setPosts(chcarcter.gender === )
   }
 
   const nextButtonHandler = () => {
@@ -79,9 +75,8 @@ function App() {
     <>
       <Header />
 
-      <label for="filter" className="filter">Filter Current Characters</label>
       <select className="filter__select" onChange={filterCharactersHandler}>
-        <option value="Full-List">all</option>
+        <option value="Full-List" defaultValue>Filter Current Characters</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Human">Human</option>

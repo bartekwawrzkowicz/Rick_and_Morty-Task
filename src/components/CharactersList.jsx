@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Character from './Character';
+import Character from './Character.jsx';
 
 import '../styles/components/Character.scss';
 
