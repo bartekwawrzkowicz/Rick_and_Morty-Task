@@ -18,12 +18,12 @@ const Buttons = props => {
     return (
         <ThemeProvider theme={newButtonTheme}>
             {props.pagination ? (
-                <Button size="large" variant="contained" onClick={props.clickBack}>back</Button>
-            ) : null}
+                <Button className="buttons" size="large" variant="contained" onClick={props.clickBack}>back</Button>
+            ) : <Button className="buttons" size="large" variant="contained" onClick={props.clickBack} disabled>back</Button>}
             {props.pagination ? (
                 <span className="page-info">{props.pageNumber}</span>
             ) : null}
-            <Button size="large" variant="contained" onClick={props.clickNext}>next</Button>
+            <Button className="buttons" size="large" variant="contained" onClick={props.clickNext}>next</Button>
         </ThemeProvider>
     );
 }
