@@ -1,5 +1,3 @@
-To start the project simply run:
-### `npm start`
 
 This is a `React app` using stateless components with Hooks.
 using `axios` to fetch data from API.
