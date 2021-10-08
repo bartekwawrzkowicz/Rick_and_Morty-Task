@@ -1,18 +1,19 @@
 @import '../config/variables';
 @import '../config/mixins';
 
-.buttons {
+.button-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 20px 50px;
+    margin: 20px 80px;
 
     @include large-mobile {
-        margin: 20px 80px;
+        margin: 20px 50px;
     }
 
     @include desktop {
-        margin: 20px 200px;
+        max-width: 800px;
+        margin: 20px auto;
     }
 }
 
