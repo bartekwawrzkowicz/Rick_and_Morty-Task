@@ -8,3 +8,5 @@ creating new color Palette for reusable `Material UI` buttons.
 
 You can filter characters on the main page by gender and species using a select-form. 
 used `Mobile first` Responsive Web Design. 
+
+This is my recruitment task. Keep fingers crossed.
